@@ -30,9 +30,10 @@ FastAPI 0.163.1, one third-party `httpx` deprecation warning), vitest 5 passed, 
 so the DOM was inspected headlessly); whether the chart `<title>` is announced as the accessible name is unconfirmed.
 Recharts line animations are JavaScript and are not covered by the reduced-motion CSS.
 
-**Open for the owner:** (1) should the dashboard be `noindex`? (2) `AGENTS.md` points to `.agents/skills`, but skills live in
-`.claude/skills` (installed) and `.skills` (internal, as the plan says); pick one location. (3) Three `memory-bank/features/` files are
-deleted in the working tree but still committed on `dev` (merged in PR #1).
+**Open for the owner:** (1) should the dashboard be `noindex`? (2) Resolved: skills are mirrored in `.agents/skills/` (source of truth, what `AGENTS.md` points to),
+`.claude/skills/` (the only place Claude Code registers skills from) and, for `pre-merge-checks`, `.skills/` (the plan's path).
+Sync rule is in the skill itself. (3) Resolved: the three `memory-bank/features/` files were restored, not deleted.
+`noindex` was left out on purpose (not required in step 3).
 
 ## Status
 - Proposed only. Nothing is adopted, enforced or applied to code. The README index in `.agents/rules/` does not list the file.

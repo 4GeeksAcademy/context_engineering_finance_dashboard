@@ -70,6 +70,13 @@ A table in the PR description or `memory-bank/progress.md`:
 
 plus one line per unverified area (for example "Docker Compose path: not run, Docker not installed").
 
+## Where skills live (keep copies in sync)
+`AGENTS.md` points agents to `.agents/skills/`; Claude Code only registers skills from `.claude/skills/`. This skill is therefore
+copied to `.agents/skills/` (source of truth), `.claude/skills/` and `.skills/`. After editing one, copy it over the others:
+`cp -r .agents/skills/pre-merge-checks/. .claude/skills/pre-merge-checks/` and the same for `.skills/pre-merge-checks/`.
+Verify with `diff -r .agents/skills/pre-merge-checks .claude/skills/pre-merge-checks` (no output means in sync).
+Installed community skills (`accessibility`, `vercel-react-best-practices`, `seo`) are pinned in `skills-lock.json`; mirror them the same way.
+
 ## Acceptance criteria
 - [ ] Every check that applies to the diff has a quoted result line, or is listed as `not run` with the reason.
 - [ ] No result is reported from memory; each came from a command run in this session.
