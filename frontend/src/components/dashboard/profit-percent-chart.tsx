@@ -77,7 +77,12 @@ export function ProfitPercentChart({ data, loading }: ProfitPercentChartProps) {
           </div>
         ) : (
           <ResponsiveContainer width="100%" height={280}>
-            <LineChart data={data} margin={{ top: 4, right: 8, left: 0, bottom: 0 }}>
+            <LineChart
+              data={data}
+              margin={{ top: 4, right: 8, left: 0, bottom: 0 }}
+              title="Profit Margin %, monthly"
+              desc="Line chart of monthly profit as a percentage of income."
+            >
               <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border)" strokeOpacity={0.6} />
               <XAxis
                 dataKey="month"
